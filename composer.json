@@ -1,0 +1,15 @@
+{
+    "name": "siddiq/product_list_app_mvc",
+    "authors": [
+        {
+            "name": "siddiqahmed882",
+            "email": "siddiqahmed882@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    }
+}
