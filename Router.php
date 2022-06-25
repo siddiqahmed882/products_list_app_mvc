@@ -6,7 +6,12 @@
 
     public array $get_routes = [];
     public array $post_routes = [];
+    public Database $db;
 
+    public function __construct(){
+      $this->db = new Database();
+    }
+    
     public function get($url, $fn){
       $this->get_routes[$url] = $fn;
     }
@@ -34,8 +39,14 @@
 
     /**
      * $view -> products/index
+     * $params -> [string_key => $value, string_key => $value, ...]
      */
-    public function render_view($view){ 
+    public function render_view($view, $params = []){ 
+
+      foreach ($params as $key => $value) {
+        $$key = $value;
+      }
+
       ob_start();
       include_once(__DIR__ . "/views/$view.php");
       $content = ob_get_clean();
